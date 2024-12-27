@@ -14,7 +14,7 @@ services:
         constraints: [node.platform.os == linux]
 
   portainer:
-    image: portainer/portainer
+    image: portainer/portainer-ee:2.22.0
     command: -H tcp://tasks.agent:9001 --tlsskipverify
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
@@ -28,8 +28,8 @@ services:
         # change the host here
         - traefik.http.routers.portainer.rule=Host(`admin.hocdevops.tk`)
         - traefik.http.services.portainer.loadbalancer.server.port=9000
-        - traefik.http.routers.portainer.entrypoints=websecure
-        - traefik.http.routers.portainer.tls=true
+        #- traefik.http.routers.portainer.entrypoints=websecure
+        #- traefik.http.routers.portainer.tls=true
         - traefik.http.routers.portainer.tls.certresolver=leresolver
       mode: replicated
       replicas: 1
