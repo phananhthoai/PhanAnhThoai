@@ -65,12 +65,12 @@ services:
         - traefik.http.middlewares.authtraefik.basicauth.users=admin:$$2y$$05$$p5Yk1gG6hFM3UBf.vMjTZefmCfioN4yv4mldAHDteqsCq819A4y.e # user/password
 
         # global redirect to https
-        - traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)
-        - traefik.http.routers.http-catchall.entrypoints=web
-        - traefik.http.routers.http-catchall.middlewares=redirect-to-https
+        #- traefik.http.routers.http-catchall.rule=hostregexp(`{host:.+}`)
+        #- traefik.http.routers.http-catchall.entrypoints=web
+        #- traefik.http.routers.http-catchall.middlewares=redirect-to-https
 
         # middleware redirect
-        - traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
+        #- traefik.http.middlewares.redirect-to-https.redirectscheme.scheme=https
 
   my-app:
     image: containous/whoami:v1.3.0
